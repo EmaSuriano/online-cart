@@ -4,6 +4,7 @@ import HomeGrid from './components/HomeGrid';
 import ProductFilters from './components/ProductFilters';
 import ProductList from './components/ProductList';
 
+// Layout component
 const Home = () => (
   <HomeGrid>
     <ProductFilters />

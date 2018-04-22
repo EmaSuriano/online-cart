@@ -8,10 +8,9 @@ export const actions = {
 };
 
 // REDUCER
-
-const INITIAL_PRICE = {
-  min: -1,
-  max: -1,
+export const INITIAL_PRICE = {
+  min: 0,
+  max: 999,
 };
 
 const initialState = {

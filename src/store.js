@@ -1,12 +1,13 @@
-import { createStore, combineReducers } from 'redux';
-import { devToolsEnhancer } from 'redux-devtools-extension';
-import search from './ducks/search';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
+import search from 'shared/ducks/search';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(
   combineReducers({
     search,
   }),
-  devToolsEnhancer(),
+  composeWithDevTools(applyMiddleware(thunk)),
 );
 
 export default store;
