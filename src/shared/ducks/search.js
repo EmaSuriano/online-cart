@@ -31,14 +31,14 @@ export default function reducer(state = initialState, action) {
 }
 
 // SELECTORS
-const getSearch = state => state.search;
+const getName = state => state.name || '';
 
-const getName = createSelector(getSearch, search => search.name || '');
+const getPrice = state => state.price || INITIAL_PRICE;
 
-const getPrice = createSelector(
-  getSearch,
-  search => search.price || INITIAL_PRICE,
-);
+const getCriteria = createSelector(getName, getPrice, (name, price) => ({
+  name,
+  price,
+}));
 
 const isFilterApplied = createSelector(
   getName,
@@ -49,6 +49,7 @@ const isFilterApplied = createSelector(
 export const selectors = {
   getName,
   getPrice,
+  getCriteria,
   isFilterApplied,
 };
 

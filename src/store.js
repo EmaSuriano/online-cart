@@ -1,12 +1,10 @@
-import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import search from 'shared/ducks/search';
+import reducers from 'shared/ducks';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(
-  combineReducers({
-    search,
-  }),
+  reducers,
   composeWithDevTools(applyMiddleware(thunk)),
 );
 

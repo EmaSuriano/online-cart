@@ -14,4 +14,5 @@ export default {
   disabled: '#BFC0C0',
   accent: '#00ADB5',
   secondary: '#393E46',
+  error: '#ff3333',
 };

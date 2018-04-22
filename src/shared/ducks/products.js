@@ -16,7 +16,7 @@ export const actions = {
 const initialState = {
   loading: false,
   error: false,
-  payload: {},
+  products: [],
 };
 
 export default function productsReducer(state = initialState, action) {
@@ -29,12 +29,12 @@ export default function productsReducer(state = initialState, action) {
     case FETCH_PRODUCTS_SUCCESS:
       return {
         ...initialState,
-        payload: action.payload,
+        products: action.payload.products,
       };
     case FETCH_PRODUCTS_ERROR:
       return {
         ...initialState,
-        error: action.error,
+        error: action.payload,
       };
     default:
       return state;
@@ -42,23 +42,21 @@ export default function productsReducer(state = initialState, action) {
 }
 
 // SELECTORS
-const getReducer = state => state.products; //remove this pls
+const isLoading = state => state.loading;
 
-const isLoading = createSelector(getReducer, reducer => reducer.loading);
+const getError = state => state.error;
 
-const getError = createSelector(getReducer, reducer => reducer.error);
-
-const getData = createSelector(
-  getReducer,
+const getProducts = createSelector(
+  state => state.products,
   isLoading,
   getError,
-  (reducer, loading, broken) => (!loading && !broken && reducer.data) || {},
+  (products, loading, broken) => (!loading && !broken && products) || [],
 );
 
 export const selectors = {
-  getReducer,
+  isLoading,
   getError,
-  getData,
+  getProducts,
 };
 
 // ACTION CREATORS
@@ -66,22 +64,24 @@ export const fetchProductsPending = () => ({
   type: FETCH_PRODUCTS_PENDING,
 });
 
-export const fetchProductsSuccess = payload => ({
+export const fetchProductsSuccess = products => ({
   type: FETCH_PRODUCTS_SUCCESS,
-  payload,
+  payload: {
+    products,
+  },
 });
 
 export const fetchProductsError = error => ({
   type: FETCH_PRODUCTS_ERROR,
-  error,
+  payload: new Error(error),
+  error: true,
 });
 
 export const fetchProducts = () => async dispatch => {
   dispatch(fetchProductsPending());
   try {
     const response = await getProductList();
-    debugger;
-    dispatch(fetchProductsSuccess(response));
+    dispatch(fetchProductsSuccess(response.products));
   } catch (error) {
     dispatch(fetchProductsError(error));
   }
