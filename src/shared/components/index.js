@@ -5,7 +5,9 @@ import InputText from './InputText';
 import Spinner from './Spinner';
 import Message from './Message';
 import RangeSlider from './RangeSlider';
-import ProductList from './ProductList/ProductList';
+import Title from './Title';
+import PriceTag from './PriceTag';
+import Picture from './Picture';
 
 export {
   AppWrapper,
@@ -14,6 +16,8 @@ export {
   InputText,
   Spinner,
   Message,
+  Title,
+  PriceTag,
   RangeSlider,
-  ProductList,
+  Picture,
 };

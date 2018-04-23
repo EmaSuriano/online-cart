@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { ProductItemListPropType } from 'shared/constants/customPropTypes';
-import { Spinner, Message, ProductList } from 'shared/components';
+import { Spinner, Message } from 'shared/components';
+import ProductList from '../ProductList';
 
 export default class Products extends Component {
   static propTypes = {

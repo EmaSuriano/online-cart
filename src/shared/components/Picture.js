@@ -5,18 +5,21 @@ import { ThemePropTypes } from 'shared/constants/theme';
 const Picture = styled.img.attrs({
   atl: 'Product picture',
 })`
-  width: ${props => props.size}px;
+  width: ${props => (props.adaptive ? '100%' : `${props.size}px`)};
   height: ${props => props.size}px;
-  border-radius: 50%;
   margin: auto;
   flex-shrink: 0;
   object-fit: cover;
-  border: 1px ${props => props.theme.secondary} solid;
 `;
 
 Picture.propTypes = {
   theme: ThemePropTypes,
   size: PropTypes.number.isRequired,
+  adaptive: PropTypes.bool,
+};
+
+Picture.defaultProps = {
+  adaptive: false,
 };
 
 Picture.displayName = 'Picture';

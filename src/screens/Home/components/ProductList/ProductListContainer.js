@@ -5,7 +5,7 @@ const ProductListContainer = styled.div`
   grid-gap: 30px;
   padding-bottom: 30px; // end of the result
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: 160px;
+  grid-auto-rows: 300px;
   justify-self: stretch;
   align-content: center;
 `;

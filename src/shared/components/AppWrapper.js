@@ -6,6 +6,7 @@ import theme, { ThemePropTypes } from '../constants/theme';
 export const Container = styled.div`
   background: ${props => props.theme.background};
   height: 100vh;
+  font-family: 'Open Sans', sans-serif;
   overflow-y: auto;
   min-width: 600px;
 `;
