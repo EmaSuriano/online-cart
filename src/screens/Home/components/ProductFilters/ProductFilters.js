@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { FilterBar, InputText } from 'shared/components';
+import { FilterBar, InputText, RangeSlider } from 'shared/components';
 import { INITIAL_PRICE } from 'shared/ducks/search';
 
 export default class ProductFilters extends Component {
@@ -17,15 +17,18 @@ export default class ProductFilters extends Component {
 
   onChangeName = ({ target: { value } }) => this.setState({ name: value });
 
+  onChangePrice = price => this.setState({ price });
+
   render() {
+    const { name, price } = this.state;
     return (
       <FilterBar onSubmit={this.onSubmit}>
         <InputText
-          value={this.state.name}
+          value={name}
           onChange={this.onChangeName}
           placeholder="NAME"
         />
-        {/* <rangeSlider /> */}
+        <RangeSlider value={price} onChange={this.onChangePrice} />
       </FilterBar>
     );
   }

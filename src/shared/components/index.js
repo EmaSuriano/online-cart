@@ -4,6 +4,7 @@ import Footer from './Footer';
 import InputText from './InputText';
 import Spinner from './Spinner';
 import Message from './Message';
+import RangeSlider from './RangeSlider';
 import ProductList from './ProductList/ProductList';
 
 export {
@@ -13,5 +14,6 @@ export {
   InputText,
   Spinner,
   Message,
+  RangeSlider,
   ProductList,
 };

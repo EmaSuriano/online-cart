@@ -10,7 +10,7 @@ export const actions = {
 // REDUCER
 export const INITIAL_PRICE = {
   min: 0,
-  max: 999,
+  max: 1000,
 };
 
 const initialState = {
