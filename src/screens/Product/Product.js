@@ -3,8 +3,10 @@ import ReactRouterPropTypes from 'react-router-prop-types';
 import { Message, Spinner } from 'shared/components';
 import Modal from 'react-responsive-modal';
 import Holen from 'holen';
-import ProductDetail from './components/ProductDetail';
 import styled from 'styled-components';
+import ProductDetail from './components/ProductDetail';
+
+const FETCH_ERROR_MESSAGE = "Can't get the detail of the selected product";
 
 const ProductContainer = styled.div`
   min-width: 300px;
@@ -23,11 +25,9 @@ const GnomeScreen = ({
       >
         {({ data, fetching, error }) =>
           (fetching && <Spinner />) ||
-          (error && (
-            <Message error>
-              Can't get the detail of the selected product
-            </Message>
-          )) || <ProductDetail {...data} />
+          (error && <Message error>{FETCH_ERROR_MESSAGE}</Message>) || (
+            <ProductDetail {...data} />
+          )
         }
       </Holen>
     </ProductContainer>
