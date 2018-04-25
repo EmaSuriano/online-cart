@@ -9,6 +9,7 @@ const BASE_SERVICE_URL =
 //     mode: 'no-cors',
 //   }).then(parseJson);
 
+// mocked response due to issues with above endpoint, can't parse to JSON
 export const getProductList = () =>
   Promise.resolve({
     products: [

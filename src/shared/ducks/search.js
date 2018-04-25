@@ -2,6 +2,7 @@ import { createSelector } from 'reselect';
 
 // ACTIONS
 const SET_CRITERIA = 'SET_CRITERIA';
+const CLEAR_FILTER = 'CLEAR_FILTER';
 
 export const actions = {
   SET_CRITERIA,
@@ -25,6 +26,11 @@ export default function reducer(state = initialState, action) {
         name: action.name,
         price: action.price,
       };
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        [action.filter]: initialState[action.filter],
+      };
     default:
       return state;
   }
@@ -40,15 +46,40 @@ const getCriteria = createSelector(getName, getPrice, (name, price) => ({
   price,
 }));
 
+const isDefaultPrice = price =>
+  price.min === INITIAL_PRICE.min && price.max === INITIAL_PRICE.max;
+
 const isFilterApplied = createSelector(
   getName,
   getPrice,
-  (name, price) => !!name || price !== INITIAL_PRICE,
+  (name, price) => !!name || !isDefaultPrice(price),
+);
+
+const getFiltersInformation = createSelector(
+  getName,
+  getPrice,
+  (name, price) => {
+    const result = [];
+    if (name) {
+      result.push({
+        key: 'name',
+        label: 'Name',
+        value: `"${name}"`,
+      });
+    }
+    if (!isDefaultPrice(price)) {
+      result.push({
+        key: 'price',
+        label: 'Price',
+        value: `from ${price.min} to ${price.max}`,
+      });
+    }
+    return result;
+  },
 );
 
 export const selectors = {
-  getName,
-  getPrice,
+  getFiltersInformation,
   getCriteria,
   isFilterApplied,
 };
@@ -60,6 +91,12 @@ const setCriteria = ({ name, price }) => ({
   price,
 });
 
+const clearFilter = filter => ({
+  type: CLEAR_FILTER,
+  filter,
+});
+
 export const actionCreators = {
   setCriteria,
+  clearFilter,
 };

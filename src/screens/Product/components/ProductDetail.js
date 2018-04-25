@@ -43,7 +43,7 @@ const ProductName = Title.extend`
 
 const ProductDescription = Message.extend`
   grid-area: description;
-  width: 25em;
+  width: 20em;
 `;
 
 const ProductPrice = styled(PriceTag)`

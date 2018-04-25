@@ -10,6 +10,8 @@ const FETCH_ERROR_MESSAGE = "Can't get the detail of the selected product";
 
 const ProductContainer = styled.div`
   min-width: 300px;
+  display: flex;
+  justify-content: center;
 `;
 
 const GnomeScreen = ({

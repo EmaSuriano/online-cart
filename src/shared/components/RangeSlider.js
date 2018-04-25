@@ -5,6 +5,7 @@ import 'react-input-range/lib/css/index.css';
 import styled from 'styled-components';
 
 const RangeSliderContainer = styled.div`
+  width: 12em;
   padding: 25px 15px;
 
   .input-range__label--max,
