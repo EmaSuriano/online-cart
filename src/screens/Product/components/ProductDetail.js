@@ -7,7 +7,7 @@ const EMPTY_DESCRIPTION = 'This product does not have any description loaded.';
 
 const ProductGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 300px 1fr;
   grid-template-rows: auto;
   grid-gap: 2em;
   grid-template-areas:
@@ -25,6 +25,8 @@ const ProductInformation = styled.div`
   grid-area: information;
   display: flex;
   flex-direction: column;
+  width: 100%;
+
   /* grid-area: information;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -41,6 +43,7 @@ const ProductName = Title.extend`
 
 const ProductDescription = Message.extend`
   grid-area: description;
+  width: 25em;
 `;
 
 const ProductPrice = styled(PriceTag)`
@@ -69,9 +72,7 @@ const ProductDetail = ({ description, name, image, price }) => (
       </ProductTitle>
       <div>
         <Title fontSize="1.5">Product Description</Title>
-        <ProductDescription>
-          {description || EMPTY_DESCRIPTION}
-        </ProductDescription>
+        <ProductDescription>{description}</ProductDescription>
       </div>
     </ProductInformation>
   </ProductGrid>
@@ -85,7 +86,7 @@ ProductDetail.propTypes = {
 };
 
 ProductDetail.defaultProps = {
-  description: '',
+  description: EMPTY_DESCRIPTION,
 };
 
 export default ProductDetail;

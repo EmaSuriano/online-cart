@@ -4,7 +4,7 @@ import { ThemePropTypes } from 'shared/constants/theme';
 import PropTypes from 'prop-types';
 
 const Price = styled.b`
-  color: ${props => props.theme.secondary};
+  color: ${props => props.theme.background};
 `;
 
 Price.propTypes = {
@@ -12,7 +12,7 @@ Price.propTypes = {
 };
 
 const Currency = styled.p`
-  color: ${props => props.theme.secondary};
+  color: ${props => props.theme.background};
   margin: 0 0.2em;
 `;
 
@@ -25,6 +25,9 @@ const PriceTagContainer = styled.div`
   justify-content: center;
   align-items: center;
   font-size: ${props => props.fontSize}em;
+  background: ${props => props.theme.accent};
+  padding: 0.3em;
+  border-radius: 1em;
 `;
 
 const PriceTag = ({ children, currencySymbol, fontSize, numberDecimal }) => (
@@ -45,7 +48,7 @@ PriceTag.defaultProps = {
   currencySymbol: '$',
   numberDecimal: 2,
   children: 0,
-  fontSize: 3,
+  fontSize: 1.5,
 };
 
 export default PriceTag;
