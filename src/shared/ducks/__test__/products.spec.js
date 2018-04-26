@@ -1,12 +1,18 @@
-import { store } from 'shared/utils/testUtils';
-import { selectors, actionCreators } from '../products';
+import { createMockStore } from 'shared/utils/testUtils';
 import { getProductList } from 'shared/constants/services';
+import productsReducer, { selectors, actionCreators } from '../products';
 
 jest.mock('shared/constants/services', () => ({
   getProductList: jest.fn().mockReturnValue(Promise.resolve()),
 }));
 
 describe('products duck', () => {
+  let store;
+
+  beforeEach(() => {
+    store = createMockStore({ products: productsReducer });
+  });
+
   describe('fetchProducts', () => {
     const { fetchProducts } = actionCreators;
 
@@ -36,9 +42,7 @@ describe('products duck', () => {
         },
       ];
 
-      getProductList.mockReturnValue({
-        products,
-      });
+      getProductList.mockReturnValue(Promise.resolve({ products }));
       await store.dispatch(fetchProducts());
 
       const productsState = store.getState().products;

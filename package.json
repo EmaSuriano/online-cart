@@ -44,13 +44,7 @@
     "jest-styled-components": "^5.0.1"
   },
   "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}",
-      "!**/setupTests.js",
-      "!src/**/index.js"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
+    "collectCoverageFrom": ["src/**/*.{js,jsx}", "!**/setupTests.js"],
+    "snapshotSerializers": ["enzyme-to-json/serializer"]
   }
 }

@@ -1,14 +1,13 @@
-import { combineReducers } from 'redux';
 import { combineSelectors } from 'combine-selectors-redux';
 import { createSelector } from 'reselect';
 import products, * as productsDuck from './products';
 import search, * as searchDuck from './search';
 import filterByCriteria from '../utils/filterByCriteria';
 
-export default combineReducers({
+export default {
   products,
   search,
-});
+};
 
 const combinedSelectors = combineSelectors({
   products: productsDuck.selectors,
