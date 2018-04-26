@@ -13,6 +13,8 @@ const FilterContainer = styled.div`
   margin-right: 1em;
 `;
 
+FilterContainer.displayName = 'FilterContainer';
+
 export default class ProductFilters extends Component {
   static propTypes = {
     setCriteria: PropTypes.func.isRequired,

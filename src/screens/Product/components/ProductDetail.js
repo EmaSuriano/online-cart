@@ -62,7 +62,7 @@ const ProductTitle = styled.div`
 
 const ProductDetail = ({ description, name, image, price }) => (
   <ProductGrid>
-    <ProductPicture size="300" src={image} />
+    <ProductPicture size={300} src={image} />
     <ProductInformation>
       <ProductTitle>
         <ProductName fontSize="3" color="secondary">

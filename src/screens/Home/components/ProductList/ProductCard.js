@@ -3,8 +3,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { ProductItemListPropType } from 'shared/constants/customPropTypes';
-import { Picture, Title, PriceTag } from '../../../../shared/components';
+import PropTypes from 'prop-types';
+import { Picture, Title, PriceTag } from 'shared/components';
 
 export const CardGrid = styled.div`
   display: grid;
@@ -67,13 +67,18 @@ StyledLink.displayName = 'StyledLink';
 const ProductCard = ({ product_id, name, price, image }) => (
   <StyledLink to={`/product/${product_id}`}>
     <CardGrid>
-      <ProductPicture adaptive size="200" src={image} />
+      <ProductPicture adaptive size={200} src={image} />
       <ProductName>{name}</ProductName>
       <ProductPrice fontSize={1.2}>{price}</ProductPrice>
     </CardGrid>
   </StyledLink>
 );
 
-ProductCard.propTypes = ProductItemListPropType;
+ProductCard.propTypes = {
+  product_id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  image: PropTypes.string.isRequired,
+};
 
 export default ProductCard;

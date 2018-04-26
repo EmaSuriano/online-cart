@@ -6,7 +6,9 @@ import ProductListContainer from './ProductListContainer';
 
 const ProductList = ({ products }) => (
   <ProductListContainer>
-    {products.map(product => <ProductCard key={product.id} {...product} />)}
+    {products.map(product => (
+      <ProductCard key={product.product_id} {...product} />
+    ))}
   </ProductListContainer>
 );
 

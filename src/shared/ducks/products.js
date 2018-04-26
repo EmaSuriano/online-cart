@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { getProductList } from '../constants/services';
+import { getProductList } from 'shared/constants/services';
 
 // ACTIONS
 const FETCH_PRODUCTS_PENDING = 'FETCH_PRODUCTS_PENDING';

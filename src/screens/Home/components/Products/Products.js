@@ -9,13 +9,15 @@ export default class Products extends Component {
     fetchProducts: PropTypes.func.isRequired,
     products: PropTypes.arrayOf(ProductItemListPropType),
     loading: PropTypes.bool,
-    error: PropTypes.error,
+    error: PropTypes.shape({
+      message: PropTypes.string,
+    }),
   };
 
   static defaultProps = {
     products: [],
     loading: false,
-    error: false,
+    error: undefined,
   };
 
   componentDidMount() {

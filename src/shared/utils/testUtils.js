@@ -3,10 +3,11 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import allReducers from 'shared/ducks';
 
-const createMockStore = (reducers = allReducers) => {
-  return createStore(
+export const createMockStore = (reducers = allReducers) =>
+  createStore(
     combineReducers(reducers),
     composeWithDevTools(applyMiddleware(thunk)),
   );
-};
-export { createMockStore };
+
+export const flushAllPromises = () =>
+  new Promise(resolve => setImmediate(resolve));
