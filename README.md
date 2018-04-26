@@ -5,7 +5,7 @@
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
 [![now](https://img.shields.io/badge/Deployed%20with-Now%20%E2%96%B3%20-lightgrey.svg)](https://online-cart-ayhmgtthsl.now.sh/)
 
-![MainScreen](https://i.imgur.com/F0nFmTr.gif)
+![MainScreen](./images/product-detail.gif)
 
 > Mobile first e-commerce that displays a list of products with prices, the user can the details of any product by clicking on it and also filter them by name and price.
 
@@ -35,7 +35,7 @@ After having something working I decided to add the filtering feature to the app
 
 Also, you can combine them as you want!
 
-![Filter feature](https://i.imgur.com/Na7gLSu.gif)
+![Filter feature](./images/product-filter.gif)
 
 ## Technical Decisions
 
