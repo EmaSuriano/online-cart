@@ -3,8 +3,9 @@
 [![prettier](https://img.shields.io/badge/styled%20with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![eslint](https://img.shields.io/badge/eslint-enabled-green.svg)](https://eslint.org/)
 [![style: styled-components](https://img.shields.io/badge/style-%F0%9F%92%85%20styled--components-orange.svg?colorB=daa357&colorA=db748e)](https://github.com/styled-components/styled-components)
+[![now](https://img.shields.io/badge/Deployed%20with-Now%20%E2%96%B3%20-lightgrey.svg)](https://online-cart-ayhmgtthsl.now.sh/)
 
-![MainScreen](./images/productDetail.gif)
+![MainScreen](https://i.imgur.com/F0nFmTr.gif)
 
 > Mobile first e-commerce that displays a list of products with prices, the user can the details of any product by clicking on it and also filter them by name and price.
 
@@ -34,7 +35,7 @@ After having something working I decided to add the filtering feature to the app
 
 Also, you can combine them as you want!
 
-![Filter feature](./images/filterFeature.gif)
+![Filter feature](https://i.imgur.com/Na7gLSu.gif)
 
 ## Technical Decisions
 
@@ -60,11 +61,17 @@ const PriceTagContainer = styled.div`
 `;
 ```
 
+For routing I used react-router as it is the defacto way of handling routes inside React, nothing complex just 2 routes:
+
+* `/`: Home page.
+* `/products/:id`: Display a modal with the information of the product.
+
 I used some components that help me building the application:
 
 * react-svg-spinner: just a Spinner, nothing cool.
 * react-input-range: a component that displays an input range with a MIN and MAX value.
 * holen: Declarative fetch for React, this help me to request the detail of the product, something that I didn't want to store in my store ...
+* react-modal: Modal for React which internally uses React.Portal!
 
 ### Redux
 
